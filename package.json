@@ -1,0 +1,21 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "This is a CMS- style blog site that allows  developers to create blogs and post them to a website where other developers can comment on the posts.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaileyM96/Tech-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BaileyM96/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/BaileyM96/Tech-Blog#readme"
+}
