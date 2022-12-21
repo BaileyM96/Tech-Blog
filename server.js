@@ -20,8 +20,8 @@ const hbs = exphbs.create({helpers});
 
 //Create a session cookie so a session cannot be hijacked
 const sess = {
-    secret: 'blah blah blah',
-    cookie: {},
+    secret: 'super secret',
+    cookie: {maxAge: 3000},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
