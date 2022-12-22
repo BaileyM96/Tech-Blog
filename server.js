@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers')
 const sequelize = require('./config/connection');
+const handlbar = exphbs.create({ helpers });
 
 
 //Need access to the module sql session store 
@@ -15,7 +16,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-const hbs = exphbs.create({helpers});
+
 
 
 //Create a session cookie so a session cannot be hijacked
@@ -31,7 +32,7 @@ const sess = {
 //Use all the added modules for the server
 app.use(session(sess));
 //render webpages to the client side
-app.engine('handlebars', hbs.engine);
+app.engine('handlebars', handlbar.engine);
 app.set('view engine', 'handlebars');
 
 app.use(express.json());
