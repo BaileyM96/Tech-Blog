@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3001;
 
 //Create a session cookie so a session cannot be hijacked
 const sess = {
-    secret: 'super secret',
+    secret: 'super secret secret',
     cookie: {maxAge: 3000},
     resave: false,
     saveUninitialized: true,
