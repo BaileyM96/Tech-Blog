@@ -15,3 +15,10 @@ dotenv
 bcrypt
 express-session
 connect-session-sequelize
+
+#Usage 
+
+Clone the repo and use npm install to get all the packages and start using
+
+# Deployed Application
+https://dashboard.heroku.com/apps/techblog12345262839
