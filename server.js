@@ -9,6 +9,7 @@ const sequelize = require('./config/connection');
 const handlbar = exphbs.create({ helpers });
 
 
+
 //Need access to the module sql session store 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
