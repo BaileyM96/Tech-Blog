@@ -3,29 +3,35 @@ const User = require('./User');
 const Post = require('./Post');
 const Comments = require('./Comments');
 
+
 // Need hasMany to connect the id to multiple tables
 User.hasMany(Comments, {
-    foreignKey: 'id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 Post.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 User.hasMany(Post, {
-    foreignKey: 'id'
+    foreignKey: 'user_id'
 });
 
 Comments.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 });
 
 Comments.belongsTo(Post, {
-    foreignKey: 'id'
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
 });
 
 Post.hasMany(Comments, {
-    foreignKey: 'id'
+    foreignKey: 'post_id',
+    onDelete: 'CASCADE'
 });
 
 module.exports = { User, Post, Comments };
