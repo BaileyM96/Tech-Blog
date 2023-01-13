@@ -20,13 +20,44 @@ router.get('/', withAuth, async (req, res) => {
         res.status(500),json(err);
     }
 });
-//router.get('/login)
+//redirect to mainpage
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
         return;
     }
     res.render('login');
+});
+//signup route
+router.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+router.get('/post/:id', (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'content',
+            'title',
+            'created_at'
+        ],
+        include: [{
+            model: 'Comments',
+            attributes:['id', 'comment', 'user_id', 'post_id'],
+            include: {
+                model: User,
+                attributes: ['Username']
+            }
+        }
+        {
+            model: User,
+            attributes: ['Username']
+        }
+    ]
+    })
 })
 
 module.exports = router;
