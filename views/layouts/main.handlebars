@@ -22,17 +22,22 @@
     <title>Tech blog</title>
 </head>
 <body class=" bg-stone-700">
-  
+  <h1 class=" text-5xl pt-8"> The Tech-blog</h1>
             {{#if logged_in}}
         <a href="/profile">Profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a  href="/login"></a>
         {{/if}}
       </nav>
     </header>
     <main class="container container-fluid mt-5">
       {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
+    {{#if logged_in}}
+    <script src="/js/login.js"></script>
+    {{/if}}
 </body>
 </html>
-<script src="/js/login.js"></script>

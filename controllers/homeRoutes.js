@@ -51,7 +51,7 @@ router.get('/post/:id', (req, res) => {
                 model: User,
                 attributes: ['Username']
             }
-        }
+        },
         {
             model: User,
             attributes: ['Username']
@@ -59,5 +59,41 @@ router.get('/post/:id', (req, res) => {
     ]
     })
 })
+
+//Create a new comment
+router.post('post/:id/Comments', async (req, res) => {
+    try {
+        const newComment = await Comments.create({
+            Comment: req.body.Comment,
+            user_id: req.body.user_id,
+            post_id: req.params.id
+        });
+        res.status(201).json(newComment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+//get a specific comment
+router.get('/Comments/:id', async (req, res) => {
+    try{
+        const comments = await Comments.findAll({
+            where: {
+                post_id: req.params.id
+            },
+            include: {
+                model: User, attributes: ['username']
+            }
+        });
+        res.json(comments);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}),
+//get a specific comment by id
+
+//Update the a specific comment by Id
+
+//Allow the route to delete a comment
 
 module.exports = router;
